@@ -6,7 +6,7 @@ module Woocommerce
     include HTTParty
 
     # Default timeout of 3 seconds
-    DEFAULT_TIMEOUT = 3
+    DEFAULT_TIMEOUT = 180
 
     API_ENDPOINT = '/wc-api/v2/'
 
