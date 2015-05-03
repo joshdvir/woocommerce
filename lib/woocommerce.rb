@@ -50,8 +50,17 @@ module Woocommerce
       self.class.default_timeout(timeout)
     end
 
-    def get_products
+    def get_products(per_page = 10, page = 1)
+      options = {
+          filter: {limit: per_page},
+          page: page
+      }
       endpoint = woocommerce_api_url_for('products')
+      self.class.get(endpoint, query: options).parsed_response
+    end
+
+    def get_products_count
+      endpoint = woocommerce_api_url_for('products/count')
       self.class.get(endpoint).parsed_response
     end
 
